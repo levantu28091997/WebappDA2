@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Start Bootstrap - SB Admin Version 2.0 Demo</title>
+<jsp:include page="admin-layout1/stylesheet.jsp" />
+    <!--stylesheet-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <jsp:include page="admin-layout1/navigation.jsp" />
+
+        <div id="page-wrapper">
+            <jsp:include page="${param.view}" />
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <jsp:include page="admin-layout1/script-bottom.jsp" />
+
+    
+
+</body>
+
+</html>
