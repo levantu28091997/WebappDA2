@@ -3,16 +3,13 @@ package dev.DAO;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import dev.entity.Categories;
-import dev.entity.Oders;
-
+import dev.DAO.entity.Oders;
 
 @Repository("OderDAO")
 @Transactional
@@ -29,11 +26,10 @@ public class OderDAO {
 			return criteria.list();
 		} catch (Exception e) {
 			e.printStackTrace();
-			// TODO: handle exception
 		}
 		return list;
 	}
-	
+
 	public Oders findOne(Integer id) {
 		Oders item = null;
 		try {
@@ -41,7 +37,6 @@ public class OderDAO {
 			item = (Oders) session.get(Oders.class, id);
 		} catch (Exception e) {
 			e.printStackTrace();
-			// TODO: handle exception
 		}
 		return item;
 	}
@@ -53,7 +48,6 @@ public class OderDAO {
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
-			// TODO: handle exception
 		}
 		return false;
 	}
@@ -69,7 +63,7 @@ public class OderDAO {
 		}
 		return false;
 	}
-	
+
 	public Boolean merge(Oders oders) {
 		try {
 			Session session = sessionFactory.getCurrentSession();
@@ -80,8 +74,6 @@ public class OderDAO {
 		}
 		return false;
 	}
-	
-	
 
 	public Boolean delete(Integer id) {
 		try {
@@ -91,12 +83,8 @@ public class OderDAO {
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
-			// TODO: handle exception
 		}
 		return false;
 	}
-	
-	
-	
-	
+
 }

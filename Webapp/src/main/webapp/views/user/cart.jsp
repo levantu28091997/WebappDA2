@@ -27,7 +27,9 @@
 								<td><img src="${cart.product.image }" alt=""></td>
 								<td>
 									<div class="shop-details">
-										<div class="productname"><h3 class="pcode">Sản phẩm: ${cart.product.name }</h3></div>
+										<div class="productname">
+											<h3 class="pcode">Sản phẩm: ${cart.product.name }</h3>
+										</div>
 										<p>
 											<img alt=""
 												src="<%=request.getContextPath()%>/resources/home/images/star.png">
@@ -48,7 +50,11 @@
 									</div>
 								</td>
 								<td>
-									<h5><fmt:formatNumber type="number" pattern="###,###" value="${cart.product.price}" />VNĐ</h5>
+									<h5>
+										<fmt:formatNumber type="number" pattern="###,###"
+											value="${cart.product.price}" />
+										VNĐ
+									</h5>
 								</td>
 								<td><select name="">
 										<option selected value="1">${cart.quantity}</option>
@@ -66,7 +72,7 @@
 								<button class="pull-left"
 									onclick="location.href='<%=request.getContextPath()%>/index.html'">
 									Continue Shopping</button>
-								<button class=" pull-right">Update Shopping Cart</button>
+								
 							</td>
 						</tr>
 					</tfoot>
@@ -79,11 +85,14 @@
 						<div class="shippingbox">
 							<div class="grandtotal">
 								<h5>GRAND TOTAL</h5>
-								<span> ${sessionScope.cart.getTotal() } </span>
+								
+								<span><fmt:formatNumber type="number" pattern="###,###"
+											value="${sessionScope.cart.getTotal() }" />
+										VNĐ</span>
 							</div>
 							<button class="pull-left"
-									onclick="location.href='<%=request.getContextPath()%>/checkout'">
-									Checkout</button>
+								onclick="location.href='<%=request.getContextPath()%>/checkout'">
+								Checkout</button>
 						</div>
 					</div>
 				</div>

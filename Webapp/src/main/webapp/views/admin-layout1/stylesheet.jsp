@@ -27,8 +27,7 @@
 <link
 	href="<%=request.getContextPath()%>/resources/admin/css/plugins/dataTables/dataTables.bootstrap.css"
 	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
 <script
-  src="https://code.jquery.com/jquery-3.3.1.js"></script>
-  
-  <script src="<%=request.getContextPath()%>/resources/admin/js/angular.js"></script>
-  
+	src="<%=request.getContextPath()%>/resources/admin/js/angular.js"></script>

@@ -17,29 +17,35 @@
 			<ul id="hot">
 				<li>
 					<div class="row">
-					<c:forEach items="${new_products}" var="item">
-						<div class="col-md-3 col-sm-6">
-							<div class="products">
-								<div class="offer">New</div>
-								<div class="thumbnail">
-									<a href="detail/${item.id}.html"><img
-										src="${item.image}
+						<c:forEach items="${new_products}" var="item">
+							<div class="col-md-3 col-sm-6">
+								<div class="products">
+									<div class="offer">New</div>
+									<div class="thumbnail">
+										<a href="detail/${item.id}.html"><img
+											src="${item.image}
 										alt="${item.name}"></a>
-								</div>
-								<div class="productname"><a href="detail/${item.id}.html">${item.name}</a></div>
-								<h4 class="price"><fmt:formatNumber type="number" pattern="###,###" value="${item.price}" /> VNĐ</h4>
-								<div class="button_group">
-									<a href="ordernow/${item.id}"><button class="button add-cart" type="button">Add To
-										Cart</button></a>
-									<button class="button compare" type="button">
-										<i class="fa fa-exchange"></i>
-									</button>
-									<button class="button wishlist" type="button">
-										<i class="fa fa-heart-o"></i>
-									</button>
+									</div>
+									<div class="productname">
+										<a href="detail/${item.id}.html">${item.name}</a>
+									</div>
+									<h4 class="price">
+										<fmt:formatNumber type="number" pattern="###,###"
+											value="${item.price}" />
+										VNĐ
+									</h4>
+									<div class="button_group">
+										<a href="ordernow/${item.id}"><button
+												class="button add-cart" type="button">Add To Cart</button></a>
+										<button class="button compare" type="button">
+											<i class="fa fa-exchange"></i>
+										</button>
+										<button class="button wishlist" type="button">
+											<i class="fa fa-heart-o"></i>
+										</button>
+									</div>
 								</div>
 							</div>
-						</div>
 						</c:forEach>
 					</div>
 				</li>
@@ -58,28 +64,34 @@
 				<li>
 					<div class="row">
 						<c:forEach items="${popular_products}" var="item">
-						<div class="col-md-3 col-sm-6">
-							<div class="products">
-								<div class="offer">Hot</div>
-								<div class="thumbnail">
-									<a href="detail/${item.id}.html"><img
-										src="${item.image}
+							<div class="col-md-3 col-sm-6">
+								<div class="products">
+									<div class="offer">Hot</div>
+									<div class="thumbnail">
+										<a href="detail/${item.id}.html"><img
+											src="${item.image}
 										alt="${item.name}"></a>
-								</div>
-								<div class="productname"><a href="detail/${item.id}.html">${item.name}</a></div>
-								<h4 class="price"><fmt:formatNumber type="number" pattern="###,###" value="${item.price}" /> VNĐ</h4>
-								<div class="button_group">
-									<a href="ordernow/${item.id}"><button class="button add-cart" type="button">Add To
-										Cart</button></a>
-									<button class="button compare" type="button">
-										<i class="fa fa-exchange"></i>
-									</button>
-									<button class="button wishlist" type="button">
-										<i class="fa fa-heart-o"></i>
-									</button>
+									</div>
+									<div class="productname">
+										<a href="detail/${item.id}.html">${item.name}</a>
+									</div>
+									<h4 class="price">
+										<fmt:formatNumber type="number" pattern="###,###"
+											value="${item.price}" />
+										VNĐ
+									</h4>
+									<div class="button_group">
+										<a href="ordernow/${item.id}"><button
+												class="button add-cart" type="button">Add To Cart</button></a>
+										<button class="button compare" type="button">
+											<i class="fa fa-exchange"></i>
+										</button>
+										<button class="button wishlist" type="button">
+											<i class="fa fa-heart-o"></i>
+										</button>
+									</div>
 								</div>
 							</div>
-						</div>
 						</c:forEach>
 					</div>
 				</li>

@@ -10,8 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import dev.entity.AdminUser;
-import dev.entity.Users;
+import dev.DAO.entity.Users;
 
 @Repository("UserDAO")
 @Transactional

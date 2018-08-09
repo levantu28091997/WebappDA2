@@ -10,19 +10,18 @@
 				<div class="products-details">
 					<div class="preview_image">
 						<div class="preview-small">
-							<img id="zoom_03" src="${detail.image}" style="padding:20px 0px 18px 90px" alt="">
+							<img id="zoom_03" src="${detail.image}"
+								style="padding: 20px 0px 18px 90px" alt="">
 						</div>
-						
+
 					</div>
 					<div class="products-description">
 						<h5 class="name">${detail.name}</h5>
-						<p>
-							<img alt="" src="images/star.png">
-						</p>
 						<hr class="border">
 						<div class="price">
-							Price : <span class="new_price"><fmt:formatNumber type="number" pattern="###,###" value="${detail.price}" /><sup> VNĐ </sup>
-							</span>
+							Price : <span class="new_price"><fmt:formatNumber
+									type="number" pattern="###,###" value="${detail.price}" /><sup>
+									VNĐ </sup> </span>
 						</div>
 						<hr class="border">
 						<div class="wided">
@@ -32,7 +31,8 @@
 								</select>
 							</div>
 							<div class="button_group">
-								<button class="button">Add To Cart</button>
+								<a href="ordernow/${detail.id}"><button
+												class="button compare" type="button">Add To Cart</button></a>
 								<button class="button compare">
 									<i class="fa fa-exchange"> </i>
 								</button>
@@ -74,7 +74,8 @@
 					</h4>
 					<div class="special-item">
 						<div class="product-image">
-							<a href="#"> <img src="<%=request.getContextPath()%>/resources/home/images/products/thum/products-01.png"
+							<a href="#"> <img
+								src="<%=request.getContextPath()%>/resources/home/images/products/thum/products-01.png"
 								alt="">
 							</a>
 						</div>
@@ -85,7 +86,8 @@
 					</div>
 					<div class="special-item">
 						<div class="product-image">
-							<a href="#"> <img src="<%=request.getContextPath()%>/resources/home/images/products/thum/products-02.png"
+							<a href="#"> <img
+								src="<%=request.getContextPath()%>/resources/home/images/products/thum/products-02.png"
 								alt="">
 							</a>
 						</div>
@@ -96,7 +98,8 @@
 					</div>
 					<div class="special-item">
 						<div class="product-image">
-							<a href="#"> <img src="<%=request.getContextPath()%>/resources/home/images/products/thum/products-03.png"
+							<a href="#"> <img
+								src="<%=request.getContextPath()%>/resources/home/images/products/thum/products-03.png"
 								alt="">
 							</a>
 						</div>

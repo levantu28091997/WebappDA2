@@ -16,8 +16,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import dev.DAO.CategoryDAO;
 import dev.DAO.ProductDAO;
-import dev.entity.Categories;
-import dev.entity.Product;
+import dev.DAO.entity.Categories;
+import dev.DAO.entity.Product;
 @Controller(value = "admin-product")
 @RequestMapping("/admin/product")
 public class ProductController {

@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import dev.DAO.CategoryDAO;
 import dev.DAO.ProductDAO;
-import dev.entity.Categories;
+import dev.DAO.entity.Categories;
 
 @Controller(value="admin-categories")
 @RequestMapping("/admin/categories")

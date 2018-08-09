@@ -29,24 +29,23 @@
 							</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${listproduct}" var="item" varStatus="i">
-							<tr>
-								<td>${i.count}</td>
-								<td>${item.name}</td>
-								<td><img src="${item.image}" alt="${item.name}"
-										width="30" height="30" /></td>
-								<td>${item.categories.name}</td>
-								<td>
-								<fmt:formatNumber type="number" pattern="###,###" value="${item.price}" /> VNĐ
-								</td>
-								<td>${item.intro}</td>
-								<td><a href="admin/product/edit/${item.id}.html"><i
-										class="fa fa-pencil fa-fw"></i></a>&emsp;<a
-									href="admin/product/delete/${item.id}.html"><i
-										class="fa fa-trash-o fa-fw"></i></a></td>
-							</tr>
-						</c:forEach>
-					</tbody>
+							<c:forEach items="${listproduct}" var="item" varStatus="i">
+								<tr>
+									<td>${i.count}</td>
+									<td>${item.name}</td>
+									<td><img src="${item.image}" alt="${item.name}" width="30"
+										height="30" /></td>
+									<td>${item.categories.name}</td>
+									<td><fmt:formatNumber type="number" pattern="###,###"
+											value="${item.price}" /> VNĐ</td>
+									<td>${item.intro}</td>
+									<td><a href="admin/product/edit/${item.id}.html"><i
+											class="fa fa-pencil fa-fw"></i></a>&emsp;<a
+										href="admin/product/delete/${item.id}.html"><i
+											class="fa fa-trash-o fa-fw"></i></a></td>
+								</tr>
+							</c:forEach>
+						</tbody>
 					</table>
 				</div>
 				<!-- /.table-responsive -->

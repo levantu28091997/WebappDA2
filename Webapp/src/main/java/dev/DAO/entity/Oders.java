@@ -1,7 +1,9 @@
-package dev.entity;
+package dev.DAO.entity;
 
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "oders")
@@ -20,20 +26,16 @@ public class Oders {
 	private Float total;
 	private Integer status;
 	private String note;
-	private Integer quantity;
-	
-	@OneToMany(mappedBy="oders",fetch=FetchType.EAGER)
+
+	@Column(name = "date")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
+	private Date date;
+
+	@OneToMany(mappedBy = "oders", fetch = FetchType.LAZY)
 	private List<OderDetails> lstOrderDetail;
 
-	public List<OderDetails> getLstOrderDetail() {
-		return lstOrderDetail;
-	}
-
-	public void setLstOrderDetail(List<OderDetails> lstOrderDetail) {
-		this.lstOrderDetail = lstOrderDetail;
-	}
-
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", nullable = false)
 	private Users users;
 
@@ -43,7 +45,6 @@ public class Oders {
 		this.total = total;
 		this.status = status;
 		this.note = note;
-		this.quantity = quantity;
 		this.users = users;
 	}
 
@@ -83,20 +84,28 @@ public class Oders {
 		this.note = note;
 	}
 
-	public Integer getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-
 	public Users getUsers() {
 		return users;
 	}
 
 	public void setUsers(Users users) {
 		this.users = users;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public List<OderDetails> getLstOrderDetail() {
+		return lstOrderDetail;
+	}
+
+	public void setLstOrderDetail(List<OderDetails> lstOrderDetail) {
+		this.lstOrderDetail = lstOrderDetail;
 	}
 
 }

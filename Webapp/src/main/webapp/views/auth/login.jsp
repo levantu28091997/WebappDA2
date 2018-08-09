@@ -62,28 +62,26 @@
 							<h3 class="panel-title">ĐĂNG NHẬP</h3>
 						</div>
 						<div class="panel-body">
-						<c:if test="${!empty message}">
-							<div class="alert alert-danger alert-dismissable">
-								<button type="button" class="close" data-dismiss="alert"
-									aria-hidden="true">×</button>${message}</div>
-						</c:if>
+							<c:if test="${!empty message}">
+								<div class="alert alert-danger alert-dismissable">
+									<button type="button" class="close" data-dismiss="alert"
+										aria-hidden="true">×</button>${message}</div>
+							</c:if>
 							<form:form method="post" commandName="AdminUser">
 								<div class="form-group">
 									<label>Email</label>
 									<form:input path="email" class="form-control"
 										placeholder="Nhập email.." />
-									<p class="help-block">
-
-									</p>
+									<p class="help-block"></p>
 								</div>
 								<div class="form-group">
 									<label>Password</label>
 									<form:input path="password" class="form-control"
 										placeholder="Nhập password.." type="password" />
-									<p class="help-block">
-									</p>
+									<p class="help-block"></p>
 								</div>
-								<button type="submit" class="btn btn-default">Đăng nhập</button>&emsp;
+								<button type="submit" class="btn btn-default">Đăng nhập</button>
+								&emsp;
 								<button type="reset" class="btn btn-default">Làm mới</button>
 
 							</form:form>

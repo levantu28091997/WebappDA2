@@ -14,21 +14,20 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import dev.DAO.OderDAO;
 import dev.DAO.OderDetailDAO;
 import dev.DAO.ProductDAO;
-import dev.entity.BaseRespone;
-import dev.entity.Cart;
-import dev.entity.OderDetails;
-import dev.entity.Oders;
-import dev.entity.Product;
-import dev.entity.Users;
+import dev.DAO.entity.Cart;
+import dev.DAO.entity.OderDetails;
+import dev.DAO.entity.Oders;
+import dev.DAO.entity.Product;
+import dev.DAO.entity.Users;
 
 @Controller
 public class CartController {
 	@Autowired
 	ProductDAO productDao;
-	
+
 	@Autowired
 	OderDAO orderDao;
-	
+
 	@Autowired
 	OderDetailDAO orderDetailDao;
 
@@ -41,16 +40,14 @@ public class CartController {
 	public String orderNow(@PathVariable(value = "id") Integer id, HttpSession httpSession, ModelMap modelMap)
 			throws Exception {
 
-		Cart cart = (Cart) httpSession.getAttribute("cart");
-		if (cart == null) {
-			cart = new Cart();
-		}
-		productDao.getNewProducts();
 		Product product = productDao.getItem(id);
-
 		if (product == null) {
 			return "redirect:/index";
 		} else {
+			Cart cart = (Cart) httpSession.getAttribute("cart");
+			if (cart == null) {
+				cart = new Cart();
+			}
 			cart.add(product);
 			httpSession.setAttribute("cart", cart);
 			return "redirect:/cart";
@@ -61,10 +58,13 @@ public class CartController {
 	@RequestMapping("deleteorder/{id}")
 	public String deleteOrder(@PathVariable(value = "id") Integer id, HttpSession httpSession,
 			RedirectAttributes redirectAttributes) throws Exception {
-		Cart cart = (Cart) httpSession.getAttribute("cart");
 		Product product = productDao.getItem(id);
 
 		if (product != null) {
+			Cart cart = (Cart) httpSession.getAttribute("cart");
+			if (cart == null) {
+				cart = new Cart();
+			}
 			cart.remove(id);
 			redirectAttributes.addFlashAttribute("message", "Xóa thành công");
 			return "redirect:/cart";
@@ -79,27 +79,23 @@ public class CartController {
 		Users user = (Users) session.getAttribute("USER");
 
 		if (cart == null || cart.getCount() == 0) {
-			redirectAttributes.addFlashAttribute("message", "Xóa thành công");
+			redirectAttributes.addFlashAttribute("message", "Giỏ hàng không tồn tại.");
 			return "redirect:/cart";
 		} else if (user == null) {
-			return "user/login";
+			return "redirect:/login";
 		} else {
+
 			Oders order = new Oders();
 			order.setUsers(user);
-			float total = (float) cart.getTotal();
-			order.setTotal(total);
-			int quantity = 0;
-			for(int i=0;i<cart.getItems().size();i++) {
-				quantity += cart.getItems().get(i).getQuantity();
-			}
-			order.setQuantity(quantity);
+			order.setTotal(cart.getTotal());
 			order.setStatus(0);
+			order.setDate(new Date());
 
 			try {
 				orderDao.insert(order);
-				for (OderDetails orderDetail : cart.getOrderDetails()) {
+				for (OderDetails orderDetail : cart.getItems()) {
 					orderDetail.setOders(order);
-					orderDetail.setCreatedAt(new Date());
+					orderDetail.setTotal(orderDetail.getProduct().getPrice() * orderDetail.getQuantity());
 					orderDetailDao.insert(orderDetail);
 				}
 				session.removeAttribute("cart");

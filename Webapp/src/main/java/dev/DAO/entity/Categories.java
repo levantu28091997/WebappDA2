@@ -1,4 +1,4 @@
-package dev.entity;
+package dev.DAO.entity;
 
 import java.util.Collection;
 
@@ -19,7 +19,7 @@ public class Categories {
 	private Integer id;
 	@NotBlank(message="Danh mục không được để trống")
 	private String name;
-	@OneToMany(mappedBy = "categories", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "categories", fetch = FetchType.LAZY)
 	private Collection<Product> product;
 
 	public Categories(Integer id, String name, Collection<Product> product) {

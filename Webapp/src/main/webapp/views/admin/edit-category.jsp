@@ -15,14 +15,14 @@
 		<div class="col-lg-6">
 
 			<form:form method="post" commandName="Categories">
-								<div class="form-group">
-									<label>Tên Danh Mục</label>
-									<form:input path="name" class="form-control"
-										placeholder="Nhập tên danh mục.." value="${itemCategory.name}" />
-									<p class="help-block">
-										<form:errors path="name" cssClass="text-danger" />
-									</p>
-								</div>
+				<div class="form-group">
+					<label>Tên Danh Mục</label>
+					<form:input path="name" class="form-control"
+						placeholder="Nhập tên danh mục.." value="${itemCategory.name}" />
+					<p class="help-block">
+						<form:errors path="name" cssClass="text-danger" />
+					</p>
+				</div>
 
 				<button type="submit" class="btn btn-default">Cập nhật</button>
 				<button type="reset" class="btn btn-default">Làm mới</button>

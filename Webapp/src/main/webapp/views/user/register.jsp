@@ -65,7 +65,7 @@
 							class="step-title" style="color: red; font-weight: bolder;">
 								Đăng ký </a>
 							<div class="step-description">
-							<jsp:include page="../admin-layout/message.jsp" />
+								<jsp:include page="../admin-layout/message.jsp" />
 								<div class="row">
 									<div class="col-md-6 col-sm-6">
 										<div class="run-customer">

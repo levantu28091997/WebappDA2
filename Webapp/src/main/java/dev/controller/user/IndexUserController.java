@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import dev.DAO.ProductDAO;
 import dev.DAO.UserDAO;
-import dev.entity.Users;
+import dev.DAO.entity.Users;
 
 @Controller
 public class IndexUserController {
@@ -47,12 +47,14 @@ public class IndexUserController {
 	public String postLogin(HttpSession session, @ModelAttribute Users user,
 			RedirectAttributes redirectAttributes) {
 		if (user.getEmail() == null || user.getPassword() == null) {
+			redirectAttributes.addFlashAttribute("b", "danger");
 			redirectAttributes.addFlashAttribute("message", "Đăng nhập thất bại");
 			return "redirect:/auth";
 		} else if (userDAO.checkAuth(user.getEmail(), user.getPassword())!=null) {
 			session.setAttribute("USER", userDAO.checkAuth(user.getEmail(), user.getPassword()));
 			return "redirect:/index";
 		}
+		redirectAttributes.addFlashAttribute("b", "danger");
 		redirectAttributes.addFlashAttribute("message", "Đăng nhập thất bại");
 		return "redirect:/login";
 	}

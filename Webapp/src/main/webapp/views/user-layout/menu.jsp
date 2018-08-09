@@ -46,7 +46,9 @@
 							<ul class="usermenu">
 
 								<c:if test="${sessionScope.USER!=null }">
-									<li><a class="log">Xin chào ${sessionScope.USER.getName()}</a><a href="<%=request.getContextPath()%>/userlogout">Logout</a></li>
+									<li><a class="log">Xin chào
+											${sessionScope.USER.getName()}</a><a
+										href="<%=request.getContextPath()%>/userlogout">Logout</a></li>
 								</c:if>
 								<c:if test="${sessionScope.USER==null}">
 									<li><a href="<%=request.getContextPath()%>/login"
@@ -72,8 +74,7 @@
 						<li class="option-cart"><a
 							href="<%=request.getContextPath()%>/cart" class="cart-icon">cart
 								<span class="cart_no"></span>
-						</a>
-							</li>
+						</a></li>
 					</ul>
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse"

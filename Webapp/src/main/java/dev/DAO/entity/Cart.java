@@ -1,9 +1,10 @@
-package dev.entity;
+package dev.DAO.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
+
 	private static final int LIMIT_ITEMS = 10;
 
 	private static final int MIN_ITEMS = 1;
@@ -14,25 +15,26 @@ public class Cart {
 		items = new ArrayList<OderDetails>();
 	}
 
-	public List<OderDetails> getOrderDetails() {
-		return items;
-	}
-
 	public void add(Product product) {
-		OderDetails item = new OderDetails();
-		item.setProduct(product);
-		item.setQuantity(1);
+		int id = product.getId();
 		// check item exist
 		for (OderDetails e : items) {
-			if (e.getProduct().getId() == product.getId()) {
-				if (e.getQuantity() + 1 <= LIMIT_ITEMS) {
+			if (e.getProduct().getId() == id) {
+				if (e.getQuantity() + 1 < LIMIT_ITEMS) {
 					e.setQuantity(e.getQuantity() + 1);
 				} else {
 					e.setQuantity(LIMIT_ITEMS);
 				}
+
+				// done if item exist
 				return;
 			}
 		}
+
+		// add if do not exist
+		OderDetails item = new OderDetails();
+		item.setProduct(product);
+		item.setQuantity(1);
 		items.add(item);
 	}
 
@@ -67,8 +69,8 @@ public class Cart {
 		return items.size();
 	}
 
-	public int getTotal() {
-		int total = 0;
+	public float getTotal() {
+		float total = 0;
 		for (OderDetails e : items) {
 			total += (e.getProduct().getPrice() * e.getQuantity());
 		}

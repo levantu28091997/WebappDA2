@@ -1,9 +1,8 @@
-package dev.entity;
+package dev.DAO.entity;
 
 import java.util.Collection;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;

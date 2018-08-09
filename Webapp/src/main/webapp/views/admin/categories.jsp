@@ -21,44 +21,44 @@
 	<!-- /.row -->
 
 	<div class="row">
-	<div class="col-lg-12">
-		<div class="panel panel-default">
-			<div class="panel-heading">DataTables Advanced Tables</div>
-			<!-- /.panel-heading -->
-			<div class="panel-body">
-				<div class="table-responsive">
-					<table class="table table-striped table-bordered table-hover"
-						id="dataTables-example">
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>Tên Danh Mục</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${listcategories}" var="item" varStatus="i">
-								<tr class="odd gradeX">
-									<td>${i.count}</td>
-									<td>${item.name}</td>
-									<td><a href="admin/categories/edit/${item.id}.html"><i
-											class="fa fa-pencil fa-fw"></i></a>&emsp;<a
-										href="admin/categories/delete/${item.id}.html"><i
-											class="fa fa-trash-o fa-fw icon-red"></i></a></td>
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">DataTables Advanced Tables</div>
+				<!-- /.panel-heading -->
+				<div class="panel-body">
+					<div class="table-responsive">
+						<table class="table table-striped table-bordered table-hover"
+							id="dataTables-example">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Tên Danh Mục</th>
+									<th>Action</th>
 								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
+							</thead>
+							<tbody>
+								<c:forEach items="${listcategories}" var="item" varStatus="i">
+									<tr class="odd gradeX">
+										<td>${i.count}</td>
+										<td>${item.name}</td>
+										<td><a href="admin/categories/edit/${item.id}.html"><i
+												class="fa fa-pencil fa-fw"></i></a>&emsp;<a
+											href="admin/categories/delete/${item.id}.html"><i
+												class="fa fa-trash-o fa-fw icon-red"></i></a></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+					<!-- /.table-responsive -->
 				</div>
-				<!-- /.table-responsive -->
+				<!-- /.panel-body -->
 			</div>
-			<!-- /.panel-body -->
+			<!-- /.panel -->
 		</div>
-		<!-- /.panel -->
+		<!-- /.col-lg-12 -->
 	</div>
-	<!-- /.col-lg-12 -->
-</div>
-<script>
+	<script>
 	$(document).ready(function() {
 		$('#dataTables-example').dataTable();
 	});

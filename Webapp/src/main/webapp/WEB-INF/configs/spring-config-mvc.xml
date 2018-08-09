@@ -32,7 +32,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/admin/**" />
-			<bean class="dev.interceptor.LoggerInterceptor" />
+			<bean class="dev.controller.interceptor.LoggerInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 

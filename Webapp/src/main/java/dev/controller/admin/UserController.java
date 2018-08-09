@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import dev.DAO.UserDAO;
-import dev.entity.Users;
+import dev.DAO.entity.Users;
 @Controller(value="admin-user")
 @RequestMapping("/admin/user")
 public class UserController {
